@@ -1,4 +1,34 @@
-run.simulation2 <- function(seed, data = sample_df,
+#' Run the simulation
+#'
+#' @param seed
+#' @param data
+#' @param ddtx_coef
+#' @param ddtx_p
+#' @param ldtx_coef
+#' @param ldtx_gamma
+#' @param mort_coef
+#' @param mort_shape
+#' @param remove_coef
+#' @param remove_p
+#' @param ddtx_rate
+#' @param gl30_coef
+#' @param dgf_coef
+#' @param mort30_coef
+#' @param gl_coef
+#' @param gl_shape
+#' @param gs_mort_coef
+#' @param gs_mort_shape
+#' @param dial_mort_coef
+#' @param dial_mort_shape
+#' @param gl_mort_coef
+#' @param france
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' results <- run.simulation2(seed = 11111)
+run_simulation  <- function(seed, data = sample_df,
                             ddtx_coef = ddtx_coef_w, ddtx_p = ddtx_p_w,
                             ldtx_coef = ldtx_coef_g, ldtx_gamma = ldtx_gamma_g,
                             mort_coef = mort_coef_w, mort_shape = mort_p_w,
