@@ -1,50 +1,44 @@
 #' Run the simulation
 #'
-#' @param seed
-#' @param data
-#' @param ddtx_coef
-#' @param ddtx_p
-#' @param ldtx_coef
-#' @param ldtx_gamma
-#' @param mort_coef
-#' @param mort_shape
-#' @param remove_coef
-#' @param remove_p
-#' @param ddtx_rate
-#' @param gl30_coef
-#' @param dgf_coef
-#' @param mort30_coef
-#' @param gl_coef
-#' @param gl_shape
-#' @param gs_mort_coef
-#' @param gs_mort_shape
-#' @param dial_mort_coef
-#' @param dial_mort_shape
-#' @param gl_mort_coef
-#' @param france
+#' @param seed random seed
+#' @param data data of simulated individuals
+#' @param ddtx_coef deceased donor transplant coefficients
+#' @param ddtx_p deceased donor transplant shape parameter
+#' @param ldtx_coef living donor transplant coefficients
+#' @param ldtx_gamma living donor transplant shape parameter
+#' @param mort_coef waitlist mortality coefficients
+#' @param mort_shape waitlist mortality shape parameter
+#' @param remove_coef waitlist removal coefficients
+#' @param remove_p waitlist removal shape parameter
+#' @param ddtx_rate increased rate of transplantation?
+#' @param france use KDPI distribution from France?
+#' @param gl30_coef 30-Day Multinomial Logit: graft loss coefficients
+#' @param dgf_coef 30-Day Multinomial Logit: delayed graft function coefficients
+#' @param mort30_coef 30-Day Multinomial Logit: mortality coefficients
+#' @param gl_coef graft loss coefficients
+#' @param gl_shape graft loss shape parameter
+#' @param gs_mort_coef death with function coefficients
+#' @param gs_mort_shape death with function shape parameter
+#' @param dial_mort_coef death after graft loss coefficients
+#' @param dial_mort_shape death after graft loss shape parameter
+#' @param gl_mort_coef death same day as graft loss coefficients
 #'
-#' @return
+#' @return data frame with results for each individual
 #' @export
 #'
 #' @examples
 #' results <- run.simulation2(seed = 11111)
 run_simulation  <- function(seed, data = sample_df,
-                            ddtx_coef = ddtx_coef_w, ddtx_p = ddtx_p_w,
-                            ldtx_coef = ldtx_coef_g, ldtx_gamma = ldtx_gamma_g,
-                            mort_coef = mort_coef_w, mort_shape = mort_p_w,
-                            remove_coef = remove_coef_w, remove_p = remove_p_w,
-                            ddtx_rate = 0,
-                            gl30_coef = gl30_coef_ml_noreg,
-                            dgf_coef = dgf_coef_ml_noreg,
-                            mort30_coef = mort30_coef_ml_noreg,
-                            gl_coef = gl_coef_g_noreg,
-                            gl_shape = gl_gamma_g_noreg,
-                            gs_mort_coef = gs_mort_coef_g_noreg,
-                            gs_mort_shape = gs_mort_gamma_g_noreg,
-                            dial_mort_coef = dial_mort_coef_w_noreg,
-                            dial_mort_shape = dial_mort_lnp_w_noreg,
-                            gl_mort_coef = gl_mort_coef_logit_noreg,
-                            france = FALSE) {
+                            ddtx_coef, ddtx_p,
+                            ldtx_coef, ldtx_gamma,
+                            mort_coef, mort_shape,
+                            remove_coef, remove_p,
+                            ddtx_rate = 0, france = FALSE,
+                            gl30_coef, dgf_coef, mort30_coef,
+                            gl_coef, gl_shape,
+                            gs_mort_coef, gs_mort_shape,
+                            dial_mort_coef, dial_mort_shape,
+                            gl_mort_coef) {
   ### Function Inputs
   # seed: used to replicate results
   # data: dataset with simulated patient cohort

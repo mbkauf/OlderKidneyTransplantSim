@@ -7,30 +7,75 @@
 run_simulation(
   seed,
   data = sample_df,
-  ddtx_coef = ddtx_coef_w,
-  ddtx_p = ddtx_p_w,
-  ldtx_coef = ldtx_coef_g,
-  ldtx_gamma = ldtx_gamma_g,
-  mort_coef = mort_coef_w,
-  mort_shape = mort_p_w,
-  remove_coef = remove_coef_w,
-  remove_p = remove_p_w,
+  ddtx_coef,
+  ddtx_p,
+  ldtx_coef,
+  ldtx_gamma,
+  mort_coef,
+  mort_shape,
+  remove_coef,
+  remove_p,
   ddtx_rate = 0,
-  gl30_coef = gl30_coef_ml_noreg,
-  dgf_coef = dgf_coef_ml_noreg,
-  mort30_coef = mort30_coef_ml_noreg,
-  gl_coef = gl_coef_g_noreg,
-  gl_shape = gl_gamma_g_noreg,
-  gs_mort_coef = gs_mort_coef_g_noreg,
-  gs_mort_shape = gs_mort_gamma_g_noreg,
-  dial_mort_coef = dial_mort_coef_w_noreg,
-  dial_mort_shape = dial_mort_lnp_w_noreg,
-  gl_mort_coef = gl_mort_coef_logit_noreg,
-  france = FALSE
+  france = FALSE,
+  gl30_coef,
+  dgf_coef,
+  mort30_coef,
+  gl_coef,
+  gl_shape,
+  gs_mort_coef,
+  gs_mort_shape,
+  dial_mort_coef,
+  dial_mort_shape,
+  gl_mort_coef
 )
 }
 \arguments{
-\item{france}{}
+\item{seed}{random seed}
+
+\item{data}{data of simulated individuals}
+
+\item{ddtx_coef}{deceased donor transplant coefficients}
+
+\item{ddtx_p}{deceased donor transplant shape parameter}
+
+\item{ldtx_coef}{living donor transplant coefficients}
+
+\item{ldtx_gamma}{living donor transplant shape parameter}
+
+\item{mort_coef}{waitlist mortality coefficients}
+
+\item{mort_shape}{waitlist mortality shape parameter}
+
+\item{remove_coef}{waitlist removal coefficients}
+
+\item{remove_p}{waitlist removal shape parameter}
+
+\item{ddtx_rate}{increased rate of transplantation?}
+
+\item{france}{use KDPI distribution from France?}
+
+\item{gl30_coef}{30-Day Multinomial Logit: graft loss coefficients}
+
+\item{dgf_coef}{30-Day Multinomial Logit: delayed graft function coefficients}
+
+\item{mort30_coef}{30-Day Multinomial Logit: mortality coefficients}
+
+\item{gl_coef}{graft loss coefficients}
+
+\item{gl_shape}{graft loss shape parameter}
+
+\item{gs_mort_coef}{death with function coefficients}
+
+\item{gs_mort_shape}{death with function shape parameter}
+
+\item{dial_mort_coef}{death after graft loss coefficients}
+
+\item{dial_mort_shape}{death after graft loss shape parameter}
+
+\item{gl_mort_coef}{death same day as graft loss coefficients}
+}
+\value{
+data frame with results for each individual
 }
 \description{
 Run the simulation
