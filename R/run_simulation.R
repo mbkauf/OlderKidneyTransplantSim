@@ -27,7 +27,7 @@
 #' @export
 #'
 #' @examples
-#' results <- run.simulation2(seed = 11111)
+#' results <- run.simulation(seed = 11111)
 run_simulation  <- function(seed, data = sample_df,
                             ddtx_coef, ddtx_p,
                             ldtx_coef, ldtx_gamma,
@@ -209,9 +209,9 @@ run_simulation  <- function(seed, data = sample_df,
 
 
   if(france==FALSE){
-    invisible(rand_kdpi_cold(n = nrow(posttx_df)))
+    Z <- invisible(rand_kdpi_cold(n = nrow(posttx_df)))
   } else {
-    invisible(rand_kdpi_cold(n = nrow(posttx_df), france=TRUE))
+    Z <- invisible(rand_kdpi_cold(n = nrow(posttx_df), france=TRUE))
   }
 
   posttx_df <- cbind(posttx_df, Z)
