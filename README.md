@@ -1,9 +1,9 @@
 # Older Kidney Transplant Microsimulation Model
 
 ## Background
-In the United States, those 65 and older make up a large and growing proportion of End-Stage Kidney Disease (ESKD) patients (~50% of all ESKD patients). The primary treatment options for ESKD are dialysis or kidney transplantation. Kidney transplantation is the preferred method with benefits for life expectancy and quality of life, but donor kidneys are a scare resource, which neccessitates the transplant waitlist. Unfortunately, older candidates recieve a disproportionately low share of transplants. 
+In the United States, those 65 and older make up a large and growing proportion of End-Stage Kidney Disease (ESKD) patients (~50% of all ESKD patients). The primary treatment options for ESKD are dialysis or kidney transplantation. Kidney transplantation is the preferred method with benefits for life expectancy and quality of life, but donor kidneys are a scare resource, which necessitates the transplant waitlist. Unfortunately, older candidates receive a disproportionately low share of transplants. 
 
-A paradox exists where there are long wait times for transplantation, but each year many usable donor kidneys are discarded. This project posits the question, "What if we utilized the often discarded, sub-optimal kidneys for older transplant candidates who are less liekly to recieve a transplant otherwise?"
+A paradox exists where there are long wait times for transplantation, but each year many usable donor kidneys are discarded. This project posits the question, "What if we utilized the often discarded, sub-optimal kidneys for older transplant candidates who are less likely to receive a transplant otherwise?"
 
 ## Methods
 We utilized Scientific Registry of Transplant Recipient (SRTR) patient-level data to develop risk prediction equations for key transplant outcomes:
