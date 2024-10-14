@@ -348,6 +348,7 @@ run_simulation  <- function(seed, data = sample_df,
     new_gl_mort <- gl_results * new_gl_mort
     m2gl_mort <- m2gl_mort + new_gl_mort*i
 
+    ### Next we determine who had a graft loss event
     gl_haz <- gl_lambda * exp(gl_shape*i) # vector of hazards (Gompertz)
     gl_prob <- 1 - exp(-gl_haz)  # Graft loss probability vector
 
@@ -391,53 +392,6 @@ run_simulation  <- function(seed, data = sample_df,
                                 gl_mort_results, m2gl, m2gs_mort, m2gl_mort,
                                 dgf_results, tx_outcome))
   all_df <- rbind(sim_df, no_ddtx)
-  # sim_df <- as.data.frame(cbind(data_gl, ddtx_results, ldtx_results,
-  #                               mort_results, remove_results, m2event,
-  #                               gl_results, gs_mort_results,
-  #                               gl_mort_results, m2gl, m2gs_mort, m2gl_mort,
-  #                               optn, tx_outcome))
 
-  # sim_df <- as.data.frame(cbind(data_gl, gl_results, gs_mort_results,
-  #                               gl_mort_results, m2gl, m2gs_mort, m2gl_mort,
-  #                               optn, tx_outcome))
-  # print(colnames(sim_df))
-  #
-  # sim_df <- sim_df %>%
-  #   rename(
-  #     graft_loss = gl_results,
-  #     gs_death = gs_mort_results,
-  #     gl_death = gl_mort_results,
-  #     gl_time = m2gl,
-  #     gs_death_time = m2gs_mort,
-  #     gl_death_time = m2gl_mort,
-  #     dgf = dgf_results,
-  #     ddtx = ddtx_results,
-  #     ldtx = ldtx_results,
-  #     mort = mort_results,
-  #     remove = remove_results,
-  #     months_to_event = m2event
-  #   )
-
-  # %>%
-  #   mutate_at(.vars = list_vars_tx, .funs = list(~ifelse(ddtx==1, ., NA))) %>%
-  #   mutate(gl_time = ifelse(graft_loss==0 & gs_death==1,
-  #                           gs_death_time, gl_time)) %>%
-  #   mutate(gs_death_time = ifelse(gs_death==0 & graft_loss==1,
-  #                                 gl_time, gs_death_time)) %>%
-  #   mutate(gl_death_time = gl_death_time - gl_time) %>%
-  #   mutate(gl_death_time = ifelse(gl_death_time < 0, NA, gl_death_time)) %>%
-  #   mutate(race = ifelse(black==0 & hispanic==0 & other_race==0, 0,
-  #                        ifelse(black==1 & hispanic==0 & other_race==0, 1,
-  #                               ifelse(black==0 & hispanic==1 & other_race==0, 2, 3)))) %>%
-  #   mutate(sim = rep(1, num_patients)) %>%
-  #   mutate(race = factor(race, levels = c(0, 1, 2, 3),
-  #                        labels = c("White", "Black",
-  #                                   "Hispanic", "Other"))) %>%
-  #   mutate(sim = factor(sim, levels = c(0, 1),
-  #                       labels = c("Observed", "Simulated"))) %>%
-  #   mutate(tx_outcome = factor(tx_outcome, levels = c(0, 1, 2, 3),
-  #                              labels = c("GS", "GL",
-  #                                         "DGF", "Mort")))
-  # return(sim_df)
   return(all_df)
 }
